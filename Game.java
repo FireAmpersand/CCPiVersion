@@ -1,6 +1,5 @@
 package cc_pi_gui_version;
 
-import cc_pi_gui_version.Target;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -16,7 +15,7 @@ public class Game {
     //Final values for the game.
     private final int numberOfTargetsPerCastle = 8;
     private final int secondsPerGame = 120;
-    private int targetChangeDelay = 5000;
+    private int targetChangeDelay = 3000;
 
     //Values for when the game is runnning
     private int timeLeft;
