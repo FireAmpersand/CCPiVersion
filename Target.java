@@ -1,5 +1,8 @@
 package cc_pi_gui_version;
 
+import java.util.concurrent.TimeUnit;
+import javafx.scene.paint.Color;
+
 /**
  * This class is used to store each targets information.
  *
@@ -9,7 +12,7 @@ public class Target {
 
     private boolean active;
     private boolean lightOn;
-    private int lightColor;
+    private Color lightColor;
 
     /**
      * Creates a new target object
@@ -17,7 +20,11 @@ public class Target {
     public Target() {
         this.active = false;
         this.lightOn = false;
-        this.lightColor = 0; //0 for white, 1 for red
+        this.lightColor = Color.BLACK; //0 for white, 1 for red
+    }
+    
+    public Color getTargetColor(){
+        return this.lightColor;
     }
 
     /**
@@ -35,6 +42,7 @@ public class Target {
     public void turnTargetOn() {
         this.active = true;
         this.lightOn = true;
+        this.lightColor = Color.WHITE;
     }
 
     /**
@@ -43,18 +51,19 @@ public class Target {
     public void turnTargetOff() {
         this.active = false;
         this.lightOn = false;
+        this.lightColor = Color.BLACK;
     }
 
     /**
      * Called when the target has been hit.
      */
-    public void targetHit() {
+    public void targetHit() throws InterruptedException {
         if (this.active) {
             this.active = false;
-            this.lightColor = 1;
-            //Send command to change color to red, wait 1 second then clear the target.
+            this.lightColor = Color.RED;
+            TimeUnit.SECONDS.sleep(1);
             this.lightOn = false;
-            this.lightColor = 0;
+            this.lightColor = Color.BLACK;
         }
     }
 
