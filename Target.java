@@ -61,7 +61,7 @@ public class Target {
         if (this.active) {
             this.active = false;
             this.lightColor = Color.RED;
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(1); //This holds up the gui
             this.lightOn = false;
             this.lightColor = Color.BLACK;
         }
