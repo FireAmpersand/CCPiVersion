@@ -9,7 +9,7 @@
 <AnchorPane id="AnchorPane" prefHeight="379.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cc_pi_gui_version.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="startButton" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" text="Start Game" />
+      <Button fx:id="startButton" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Start Game" />
       <Circle fx:id="redLeftMist" fill="#000203" layoutX="22.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="redLeftTarget" layoutX="54.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="redBLeftTarget" layoutX="80.0" layoutY="345.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
