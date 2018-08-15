@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 
 /**
  * This class runs the Castle Clash game.
@@ -11,10 +12,10 @@ import java.util.logging.Logger;
  * @author Zachary Passmore
  */
 public class Game {
-
+    
     //Final values for the game.
     private final int numberOfTargetsPerCastle = 8;
-    private final int secondsPerGame = 120;
+    private final int secondsPerGame = 90;
     private int targetChangeDelay = 3000;
 
     //Values for when the game is runnning
@@ -46,6 +47,30 @@ public class Game {
         this.nextRedCannon = "left";
     }
 
+    public int getTimeRemaining(){
+        return this.timeLeft;
+    }
+    
+    public Target[] getBlueTargets(){
+        return this.blueCastleTargets;
+    }
+    
+    public Target[] getRedTargets(){
+        return this.redCastleTargets;
+    }
+    
+    public void scorePointBlue(){
+        this.blueScore++;
+    }
+    
+    public int getBlueScore(){
+        return this.blueScore;
+    }
+    
+    public void scorePointRed(){
+        this.redScore++;
+    }
+    
     private void clearTargets() {
         for (int i = 0; i < this.blueCastleTargets.length; i++) {
             this.blueCastleTargets[i] = new Target();
@@ -78,6 +103,7 @@ public class Game {
         System.out.println("Time Remaining: " + this.timeLeft);
     }
     
+    
     public void startNewGame() {
 
         //Resetting values to defualt
@@ -107,7 +133,8 @@ public class Game {
             //Main game loop, rotate targets and turn on player stations
             
         }
-
+        System.out.println("Out Of Game Loop");
+        clearTargets();
         //Post Game actions
         if (this.blueScore > this.redScore) {
             //Blue Winner Audio
@@ -129,7 +156,7 @@ public class Game {
     }
 
     private void changeTargets() {
-        for (int i = 0; i < this.blueCastleTargets.length - 3; i++) {
+        for (int i = 0; i < this.blueCastleTargets.length - 1; i++) {
             int onCheck = (int) (Math.random() * 2);
             if (onCheck == 0) {
                 this.blueCastleTargets[i].turnTargetOn();
