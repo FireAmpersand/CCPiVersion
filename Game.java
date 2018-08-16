@@ -177,7 +177,9 @@ public class Game {
         //Running the game if there is time remaining
         while (this.timeLeft > 0) {
             //just a place holder so the game doesn't move on untill time is up
+            System.out.println(this.timeLeft);
         }
+        System.out.println("Boop");
         clearTargets();
         //Post Game actions
         if (this.blueScore > this.redScore) {
@@ -227,14 +229,14 @@ public class Game {
 
             public void run() {
                 setInterval();
-                timeToConsole();
+                //timeToConsole();
             }
         }, 1000, 1000);
         gameTimer.scheduleAtFixedRate(new TimerTask() {
 
             public void run() {
                 changeTargets();
-                targetToConsole();
+                //targetToConsole();
             }
         }, this.targetChangeDelay, this.targetChangeDelay);
     }
