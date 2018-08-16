@@ -20,6 +20,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
@@ -35,49 +36,66 @@ public class FXMLDocumentController implements Initializable {
     private Label timeRemaining;
     @FXML
     private Label blueScore;
-    
-    
     @FXML
-    private Circle blueLeftTarget;
+    private Label redScore;
+
+    //Blue Castle Targets
     @FXML
-    private Circle blueBLeftTarget;
+    private Circle target1;
     @FXML
-    private Circle blueMiddleTarget;
+    private Circle target2;
     @FXML
-    private Circle blueBRightTarget;
+    private Circle target3;
     @FXML
-    private Circle blueLeftMist;
+    private Circle target4;
     @FXML
-    private Circle blueRightTarget;
+    private Circle target0;
     @FXML
-    private Circle blueRightMist;
+    private Circle target5;
     @FXML
-    private Circle blueCannon;
-    
+    private Circle target6;
     @FXML
-    private Circle redLeftTarget;
+    private Circle target7;
+
+    //Red Castle Targets
     @FXML
-    private Circle redBLeftTarget;
+    private Circle target9;
     @FXML
-    private Circle redMiddleTarget;
+    private Circle target10;
     @FXML
-    private Circle redBRightTarget;
+    private Circle target11;
     @FXML
-    private Circle redLeftMist;
+    private Circle target12;
     @FXML
-    private Circle redRightTarget;
+    private Circle target8;
     @FXML
-    private Circle redRightMist;
+    private Circle target13;
     @FXML
-    private Circle redCannon;
-    
-    
+    private Circle target14;
     @FXML
-    private void handleTargetHit(ActionEvent event){
+    private Circle target15;
+
+    /**
+     * Handles the mouse click on a target.
+     * @param mouseEvent The Mouse event provided by the gui.
+     */
+    @FXML
+    private void handleTargetHit(MouseEvent mouseEvent) {
         try {
-            theGame.getBlueTargets()[0].targetHit();
-            theGame.scorePointBlue();
-            System.out.println("Boop");
+            String theTargetId = mouseEvent.getPickResult().getIntersectedNode().getId();
+            int id = Integer.parseInt(theTargetId.replaceAll("[^0-9]", ""));
+            if (id < 8) {
+                if (theGame.getBlueTargets()[id].isActive()) {
+                    theGame.scorePointBlue();
+                    theGame.getBlueTargets()[id].targetHit();
+                }
+            }else{
+                id = id - 8;
+                if (theGame.getRedTargets()[id].isActive()){
+                    theGame.scorePointRed();
+                    theGame.getRedTargets()[id].targetHit();
+                }
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -85,6 +103,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        System.out.println("Button pressed");
         Thread gameThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -102,7 +121,7 @@ public class FXMLDocumentController implements Initializable {
                         new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        // Call update method for every 2 sec.
+                        // Call update method for every 0.5 sec.
                         updateDisplay();
                     }
                 }));
@@ -110,25 +129,26 @@ public class FXMLDocumentController implements Initializable {
         timeline.play();
     }
 
-    public void updateDisplay() {
+    public void updateDisplay() throws NullPointerException {
         this.timeRemaining.setText("" + theGame.getTimeRemaining());
         this.blueScore.setText("" + theGame.getBlueScore());
-        this.blueLeftMist.setFill(theGame.getBlueTargets()[0].getTargetColor());
-        this.blueLeftTarget.setFill(theGame.getBlueTargets()[1].getTargetColor());
-        this.blueBLeftTarget.setFill(theGame.getBlueTargets()[2].getTargetColor());
-        this.blueMiddleTarget.setFill(theGame.getBlueTargets()[3].getTargetColor());
-        this.blueBRightTarget.setFill(theGame.getBlueTargets()[4].getTargetColor());
-        this.blueRightTarget.setFill(theGame.getBlueTargets()[5].getTargetColor());
-        this.blueRightMist.setFill(theGame.getBlueTargets()[6].getTargetColor());
-        this.blueCannon.setFill(theGame.getBlueTargets()[7].getTargetColor());
-        this.redLeftMist.setFill(theGame.getRedTargets()[0].getTargetColor());
-        this.redLeftTarget.setFill(theGame.getRedTargets()[1].getTargetColor());
-        this.redBLeftTarget.setFill(theGame.getRedTargets()[2].getTargetColor());
-        this.redMiddleTarget.setFill(theGame.getRedTargets()[3].getTargetColor());
-        this.redBRightTarget.setFill(theGame.getRedTargets()[4].getTargetColor());
-        this.redRightTarget.setFill(theGame.getRedTargets()[5].getTargetColor());
-        this.redRightMist.setFill(theGame.getRedTargets()[6].getTargetColor());
-        this.redCannon.setFill(theGame.getRedTargets()[7].getTargetColor());
+        this.redScore.setText("" + theGame.getRedScore());
+        this.target0.setFill(theGame.getBlueTargets()[0].getTargetColor());
+        this.target1.setFill(theGame.getBlueTargets()[1].getTargetColor());
+        this.target2.setFill(theGame.getBlueTargets()[2].getTargetColor());
+        this.target3.setFill(theGame.getBlueTargets()[3].getTargetColor());
+        this.target4.setFill(theGame.getBlueTargets()[4].getTargetColor());
+        this.target5.setFill(theGame.getBlueTargets()[5].getTargetColor());
+        this.target6.setFill(theGame.getBlueTargets()[6].getTargetColor());
+        this.target7.setFill(theGame.getBlueTargets()[7].getTargetColor());
+        this.target8.setFill(theGame.getRedTargets()[0].getTargetColor());
+        this.target9.setFill(theGame.getRedTargets()[1].getTargetColor());
+        this.target10.setFill(theGame.getRedTargets()[2].getTargetColor());
+        this.target11.setFill(theGame.getRedTargets()[3].getTargetColor());
+        this.target12.setFill(theGame.getRedTargets()[4].getTargetColor());
+        this.target13.setFill(theGame.getRedTargets()[5].getTargetColor());
+        this.target14.setFill(theGame.getRedTargets()[6].getTargetColor());
+        this.target15.setFill(theGame.getRedTargets()[7].getTargetColor());
     }
 
 }

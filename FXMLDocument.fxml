@@ -9,32 +9,31 @@
 <AnchorPane id="AnchorPane" prefHeight="379.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cc_pi_gui_version.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="startButton" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Start Game" />
-      <Circle fx:id="redLeftMist" fill="#000203" layoutX="22.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redLeftTarget" layoutX="54.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redBLeftTarget" layoutX="80.0" layoutY="345.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redMiddleTarget" layoutX="110.0" layoutY="345.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redBRightTarget" layoutX="141.0" layoutY="345.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redRightTarget" fill="#030000" layoutX="169.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redRightMist" layoutX="203.0" layoutY="321.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="redCannon" layoutX="110.0" layoutY="296.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueBLeftTarget" layoutX="80.0" layoutY="249.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueMiddleTarget" layoutX="110.0" layoutY="249.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueBRightTarget" layoutX="141.0" layoutY="249.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueRightTarget" layoutX="169.0" layoutY="222.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueRightMist" layoutX="203.0" layoutY="222.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueLeftTarget" layoutX="54.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueLeftMist" layoutX="22.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="blueCannon" layoutX="110.0" layoutY="190.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="startButton" layoutX="428.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Start Game" />
+      <Circle fx:id="target8" fill="#000203" layoutX="22.0" layoutY="321.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target9" layoutX="54.0" layoutY="321.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target10" layoutX="80.0" layoutY="345.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target11" layoutX="110.0" layoutY="345.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target12" layoutX="141.0" layoutY="345.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target13" fill="#030000" layoutX="169.0" layoutY="321.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target14" layoutX="203.0" layoutY="321.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target15" layoutX="110.0" layoutY="296.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target2" layoutX="80.0" layoutY="249.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target3" layoutX="110.0" layoutY="249.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target4" layoutX="141.0" layoutY="249.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target5" layoutX="169.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target6" layoutX="203.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target1" layoutX="54.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target0" layoutX="22.0" layoutY="222.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="target7" layoutX="110.0" layoutY="190.0" onMouseClicked="#handleTargetHit" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Line endX="100.0" layoutX="110.0" layoutY="273.0" startX="-100.0" />
       <Text layoutX="81.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue Castle" />
       <Text layoutX="82.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Castle" />
       <Text layoutX="429.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Remaining" />
       <Text layoutX="436.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue Score" />
       <Text layoutX="437.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Score" />
-      <Text fx:id="redScore" layoutX="460.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Label fx:id="timeRemaining" layoutX="452.0" layoutY="92.0" text="0" />
-      <Button fx:id="hitTargetButton" layoutX="46.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleTargetHit" text="Button" />
-      <Label fx:id="blueScore" layoutX="450.0" layoutY="145.0" text="Label" />
+      <Label fx:id="blueScore" layoutX="450.0" layoutY="145.0" text="0" />
+      <Label fx:id="redScore" layoutX="450.0" layoutY="197.0" text="0" />
     </children>
 </AnchorPane>
