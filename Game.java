@@ -175,7 +175,7 @@ public class Game {
         //Running the game if there is time remaining
         while (this.timeLeft > 0) {
             //just a place holder so the game doesn't move on untill time is up
-            System.out.println(this.timeLeft);
+            //System.out.println(this.timeLeft);
         }
         System.out.println("Boop");
         clearTargets();
