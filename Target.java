@@ -1,6 +1,6 @@
-package cc_pi_gui_version;
+package CCPiVersion;
 
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * This class is used to store each targets information.
