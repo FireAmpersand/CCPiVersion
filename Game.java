@@ -1,4 +1,4 @@
-package cc_pi_gui_version;
+package CCPiVersion;
 
 import java.util.Timer;
 import java.util.TimerTask;
