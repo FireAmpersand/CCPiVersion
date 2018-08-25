@@ -229,14 +229,14 @@ public class Game {
 
             public void run() {
                 setInterval();
-                //timeToConsole();
+                timeToConsole();
             }
         }, 1000, 1000);
         gameTimer.scheduleAtFixedRate(new TimerTask() {
 
             public void run() {
                 changeTargets();
-                //targetToConsole();
+                targetToConsole();
             }
         }, this.targetChangeDelay, this.targetChangeDelay);
     }
