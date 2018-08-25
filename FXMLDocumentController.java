@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cc_pi_gui_version;
+package CCPiVersion;
 
 import java.net.URL;
 import javafx.util.Duration;
