@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
@@ -77,6 +78,7 @@ public class FXMLDocumentController implements Initializable {
 
     /**
      * Handles the mouse click on a target.
+     *
      * @param mouseEvent The Mouse event provided by the gui.
      */
     @FXML
@@ -89,9 +91,9 @@ public class FXMLDocumentController implements Initializable {
                     theGame.scorePointBlue();
                     theGame.getBlueTargets()[id].targetHit();
                 }
-            }else{
+            } else {
                 id = id - 8;
-                if (theGame.getRedTargets()[id].isActive()){
+                if (theGame.getRedTargets()[id].isActive()) {
                     theGame.scorePointRed();
                     theGame.getRedTargets()[id].targetHit();
                 }
@@ -129,26 +131,41 @@ public class FXMLDocumentController implements Initializable {
         timeline.play();
     }
 
+    private Color parseTargetColor(Target currentTarget) {
+        String color = currentTarget.getTargetColor();
+        color = color.toLowerCase();
+        switch (color) {
+            case "black":
+                return Color.BLACK;
+            case "white":
+                return Color.WHITE;
+            case "red":
+                return Color.RED;
+            default:
+                return Color.BLACK;
+        }
+    }
+
     public void updateDisplay() throws NullPointerException {
         this.timeRemaining.setText("" + theGame.getTimeRemaining());
         this.blueScore.setText("" + theGame.getBlueScore());
         this.redScore.setText("" + theGame.getRedScore());
-        this.target0.setFill(theGame.getBlueTargets()[0].getTargetColor());
-        this.target1.setFill(theGame.getBlueTargets()[1].getTargetColor());
-        this.target2.setFill(theGame.getBlueTargets()[2].getTargetColor());
-        this.target3.setFill(theGame.getBlueTargets()[3].getTargetColor());
-        this.target4.setFill(theGame.getBlueTargets()[4].getTargetColor());
-        this.target5.setFill(theGame.getBlueTargets()[5].getTargetColor());
-        this.target6.setFill(theGame.getBlueTargets()[6].getTargetColor());
-        this.target7.setFill(theGame.getBlueTargets()[7].getTargetColor());
-        this.target8.setFill(theGame.getRedTargets()[0].getTargetColor());
-        this.target9.setFill(theGame.getRedTargets()[1].getTargetColor());
-        this.target10.setFill(theGame.getRedTargets()[2].getTargetColor());
-        this.target11.setFill(theGame.getRedTargets()[3].getTargetColor());
-        this.target12.setFill(theGame.getRedTargets()[4].getTargetColor());
-        this.target13.setFill(theGame.getRedTargets()[5].getTargetColor());
-        this.target14.setFill(theGame.getRedTargets()[6].getTargetColor());
-        this.target15.setFill(theGame.getRedTargets()[7].getTargetColor());
+        this.target0.setFill(parseTargetColor(theGame.getBlueTargets()[0]));
+        this.target1.setFill(parseTargetColor(theGame.getBlueTargets()[1]));
+        this.target2.setFill(parseTargetColor(theGame.getBlueTargets()[2]));
+        this.target3.setFill(parseTargetColor(theGame.getBlueTargets()[3]));
+        this.target4.setFill(parseTargetColor(theGame.getBlueTargets()[4]));
+        this.target5.setFill(parseTargetColor(theGame.getBlueTargets()[5]));
+        this.target6.setFill(parseTargetColor(theGame.getBlueTargets()[6]));
+        this.target7.setFill(parseTargetColor(theGame.getBlueTargets()[7]));
+        this.target8.setFill(parseTargetColor(theGame.getRedTargets()[0]));
+        this.target9.setFill(parseTargetColor(theGame.getRedTargets()[1]));
+        this.target10.setFill(parseTargetColor(theGame.getRedTargets()[2]));
+        this.target11.setFill(parseTargetColor(theGame.getRedTargets()[3]));
+        this.target12.setFill(parseTargetColor(theGame.getRedTargets()[4]));
+        this.target13.setFill(parseTargetColor(theGame.getRedTargets()[5]));
+        this.target14.setFill(parseTargetColor(theGame.getRedTargets()[6]));
+        this.target15.setFill(parseTargetColor(theGame.getRedTargets()[7]));
     }
 
 }
