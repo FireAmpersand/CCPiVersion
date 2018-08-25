@@ -12,7 +12,7 @@ public class Target {
 
     private boolean active;
     private boolean lightOn;
-    private Color lightColor;
+    private String lightColor;
 
     /**
      * Creates a new target object
@@ -20,10 +20,10 @@ public class Target {
     public Target() {
         this.active = false;
         this.lightOn = false;
-        this.lightColor = Color.BLACK; //0 for white, 1 for red
+        this.lightColor = "Black"; //0 for white, 1 for red
     }
     
-    public Color getTargetColor(){
+    public String getTargetColor(){
         return this.lightColor;
     }
 
@@ -42,7 +42,7 @@ public class Target {
     public void turnTargetOn() {
         this.active = true;
         this.lightOn = true;
-        this.lightColor = Color.WHITE;
+        this.lightColor = "White";
     }
 
     /**
@@ -51,7 +51,7 @@ public class Target {
     public void turnTargetOff() {
         this.active = false;
         this.lightOn = false;
-        this.lightColor = Color.BLACK;
+        this.lightColor = "Black";
     }
 
     /**
@@ -60,10 +60,10 @@ public class Target {
     public void targetHit() throws InterruptedException {
         if (this.active) {
             this.active = false;
-            this.lightColor = Color.RED;
+            this.lightColor = "Red";
             //TimeUnit.SECONDS.sleep(1); //This holds up the gui
             this.lightOn = false;
-            this.lightColor = Color.BLACK;
+            this.lightColor = "Red";
         }
     }
 
