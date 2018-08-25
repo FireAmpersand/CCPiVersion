@@ -7,9 +7,7 @@ package CCPiVersion;
 
 import java.net.URL;
 import javafx.util.Duration;
-import java.time.temporal.TemporalUnit;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
@@ -23,7 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 
 /**
  *
