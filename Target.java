@@ -1,7 +1,6 @@
 package cc_pi_gui_version;
 
 import java.util.concurrent.TimeUnit;
-import javafx.scene.paint.Color;
 
 /**
  * This class is used to store each targets information.
